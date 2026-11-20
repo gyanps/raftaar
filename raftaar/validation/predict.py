@@ -16,9 +16,10 @@ The input is a CSV (or a JSON list of objects). Column names are matched loosely
 * optional route (route, route_name, route_short_name; or route_id): the bus ride is then priced on that route only.
 * optional observed time (actual_min, observed_min, actual_s, travel_time_s, duration_min ...): the file is scored.
 
-Every row gets two answers. bus_ride_min is the time on one bus from the boarding stop to the alighting stop
-(with a 10th-90th percentile range), which is what the backtest measures. door_to_door_min is the whole journey
-from the journey planner: walking, waiting, riding and any change of bus. All clock times are Indian Standard Time.
+Every row gets two answers. door_to_door_min is the whole journey from the journey planner, with its range and
+its parts (walk_min, wait_min, ride_min, number of buses). bus_ride_min is the time on one bus from the boarding
+stop to the alighting stop (with a 10th-90th percentile range), which is what the backtest measures.
+An observed-time column is taken as door to door unless --actual-is ride is given. All clock times are Indian Standard Time.
 """
 from __future__ import annotations
 
@@ -60,9 +61,11 @@ COORD = re.compile(r"^\s*(-?\d+(?:\.\d+)?)\s*[, ]\s*(-?\d+(?:\.\d+)?)\s*$")
 NEAR_M = (250.0, 500.0)          # a named place or a coordinate boards within this distance (the second if the first finds no bus)
 SAME_STOP_M = 150.0              # a stop_id with no direct bus may use the stop across the road
 
-NEW_COLUMNS = ["matched_from", "matched_to", "depart_ist", "day_type", "route_used", "stops", "distance_km",
-               "bus_ride_min", "bus_ride_p10_min", "bus_ride_p90_min", "timetable_min",
-               "door_to_door_min", "door_to_door_low_min", "door_to_door_high_min", "buses", "journey", "note"]
+NEW_COLUMNS = ["matched_from", "matched_to", "depart_ist", "day_type",
+               "door_to_door_min", "door_to_door_low_min", "door_to_door_high_min", "walk_min", "wait_min", "ride_min",
+               "buses", "journey", "timetable_door_to_door_min",
+               "route_used", "stops", "distance_km", "bus_ride_min", "bus_ride_p10_min", "bus_ride_p90_min", "timetable_min", "note"]
+BUS_ONLY = ("route_used", "stops", "distance_km", "bus_ride_min", "bus_ride_p10_min", "bus_ride_p90_min", "timetable_min")
 
 
 def header(h: str) -> str:
@@ -289,11 +292,12 @@ class Scorer:
             out["note"] = str(exc)
             return out
         notes += [x for x in (assumed, route_note) if x]
-        out["matched_from"], out["matched_to"] = o["label"], d["label"]
+        places = (o["label"], d["label"])
         out["depart_ist"] = (dt.datetime(1970, 1, 1) + dt.timedelta(seconds=when + IST_OFFSET_S)).strftime("%Y-%m-%d %H:%M")
         out["day_type"] = DAYTYPE_NAMES[int(daytype(when))]
         ride, ride_note = self.ride(o, d, when, mask)
-        out.update(ride)
+        out.update({k: v for k, v in ride.items() if k in BUS_ONLY})
+        out["matched_from"], out["matched_to"] = ride.get("matched_from", places[0]), ride.get("matched_to", places[1])
         if ride_note:
             notes.append(ride_note)
         if self.journeys:
@@ -301,7 +305,9 @@ class Scorer:
             if res["options"]:
                 best = res["options"][0]
                 out.update(door_to_door_min=best["duration_min"], door_to_door_low_min=best["range_min"][0],
-                           door_to_door_high_min=best["range_min"][1], buses=best["buses"], journey=best["summary"])
+                           door_to_door_high_min=best["range_min"][1], walk_min=best["walk_min"], wait_min=best["wait_min"],
+                           ride_min=best["ride_min"], buses=best["buses"], journey=best["summary"],
+                           timetable_door_to_door_min=best.get("timetable_duration_min", ""))
             else:
                 notes.append("no journey found")
         out["note"] = "; ".join(notes)
@@ -339,9 +345,10 @@ def summary(rows: list[dict], actual_min: list[float | None], which: str) -> lis
              f"  error / trip time   {100 * np.abs(err).sum() / act.sum():.1f}%",
              f"  within 10%          {100 * (np.abs(err) <= 0.1 * act).mean():.1f}% of cases",
              f"  bias                {err.mean():+.2f} min (plus = we say longer)"]
-    if which == "ride":
-        tt = np.array([float(p[2]["timetable_min"]) for p in pairs])
-        lines.append(f"  published timetable {np.abs(tt - act).mean():.2f} min average error on the same cases")
+    tt_col = "timetable_min" if which == "ride" else "timetable_door_to_door_min"
+    tt = np.array([float(p[2][tt_col]) if p[2].get(tt_col) not in ("", None) else np.nan for p in pairs])
+    if np.isfinite(tt).any():
+        lines.append(f"  published timetable {np.nanmean(np.abs(tt - act)):.2f} min average error on the same cases")
     return lines
 
 
@@ -349,10 +356,12 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("cases", type=Path, help="CSV or JSON file of test trips")
     ap.add_argument("-o", "--out", type=Path, default=None, help="where to write predictions (default: <cases>.predictions.csv)")
-    ap.add_argument("--actual-is", choices=("ride", "door"), default="ride",
-                    help="what an observed-time column measures: time on the bus (default) or the whole door-to-door journey")
-    ap.add_argument("--no-journeys", action="store_true", help="skip the door-to-door planner (faster on very large files)")
+    ap.add_argument("--actual-is", choices=("door", "ride"), default="door",
+                    help="what an observed-time column measures: the whole door-to-door journey (default) or time on one bus")
+    ap.add_argument("--no-journeys", action="store_true", help="skip the door-to-door planner: bus ride only (implies --actual-is ride)")
     args = ap.parse_args(argv)
+    if args.no_journeys:
+        args.actual_is = "ride"
 
     names, raw = read_cases(args.cases)
     keyed = [{header(k): v for k, v in r.items() if k is not None} for r in raw]

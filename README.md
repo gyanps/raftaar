@@ -108,10 +108,10 @@ It works straight after `make demo`; no raw data and no server are needed. Colum
 
 Each row gets two answers, because "travel time" can mean either:
 
-- **`bus_ride_min`**: time on one bus from the boarding stop to the alighting stop, with its 10th to 90th percentile range and the timetable's figure beside it. This is what the backtest measures.
-- **`door_to_door_min`**: the whole journey from the planner, with walking, waiting and any change of bus, and its range.
+- **`door_to_door_min`**: the whole journey from the planner, with its range and its parts: `walk_min`, `wait_min`, `ride_min`, the number of buses and the routes taken. The timetable's figure for the same journey is beside it.
+- **`bus_ride_min`**: time on one bus from the boarding stop to the alighting stop, with its 10th to 90th percentile range and the timetable's figure. This is what the backtest measures.
 
-A row that cannot be read (an unknown stop, a missing time) gets a `note` saying why and the rest still run. With an observed-time column the command prints the average error, the share of cases within 10%, the bias, and the timetable's error on the same cases; add `--actual-is door` if the observed time is door to door. [validation/sample_cases.csv](validation/sample_cases.csv) shows every accepted layout.
+A row that cannot be read (an unknown stop, a missing time) gets a `note` saying why and the rest still run. With an observed-time column the command prints the average error, the share of cases within 10%, the bias, and the timetable's error on the same cases. The observed time is taken as door to door; add `--actual-is ride` if it is time on the bus only. [validation/sample_cases.csv](validation/sample_cases.csv) shows every accepted layout.
 
 A file has no "now", so these answers are the typical-day model for the given date and time. For a trip leaving now with the live adjustment, ask `/api/journeys?depart=now` on a server started with the feed key.
 
