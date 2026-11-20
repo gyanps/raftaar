@@ -1,0 +1,28 @@
+[project]
+name = "raftaar"
+version = "0.1.0"
+description = "Delhi bus travel-time model and journey planner built from bus GPS (Transport Stack Hackathon 2026, Problem 1)"
+requires-python = ">=3.12,<3.13"
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=2.0",
+    "numba>=0.61",
+    "duckdb>=1.1",
+    "pyarrow>=17",
+    "fastapi>=0.165.0",
+    "uvicorn[standard]>=0.54.0",
+    "gtfs-realtime-bindings>=3.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=8",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

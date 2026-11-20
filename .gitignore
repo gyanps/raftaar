@@ -1,0 +1,12 @@
+data/
+artifacts/
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+*.parquet
+*.npz
+tmp/
+dist/

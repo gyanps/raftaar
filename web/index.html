@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Raftaar · Delhi bus times from the buses' own GPS</title>
+<meta name="description" content="A Delhi bus journey planner whose travel times come from how fast buses really moved, by hour and by day.">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="map" aria-label="Map of Delhi"></div>
+
+<aside class="panel" id="panel">
+  <header class="brand">
+    <div>
+      <h1>Raftaar</h1>
+      <p>Delhi bus times, learned from the buses' own GPS</p>
+    </div>
+    <button class="icon-btn" id="theme" title="Light / dark" aria-label="Switch light or dark map">◐</button>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-tab="plan" class="on">Plan</button>
+    <button role="tab" data-tab="traffic">Speeds</button>
+    <button role="tab" data-tab="live">Live</button>
+    <button role="tab" data-tab="accuracy">Accuracy</button>
+  </nav>
+
+  <section id="tab-plan" class="tab on">
+    <form id="form" autocomplete="off">
+      <div class="field">
+        <span class="dot a">A</span>
+        <input id="from" placeholder="From: stop name, or click the map" aria-label="From">
+        <ul class="suggest" id="from-list"></ul>
+      </div>
+      <button type="button" class="swap" id="swap" title="Swap" aria-label="Swap from and to">⇅</button>
+      <div class="field">
+        <span class="dot b">B</span>
+        <input id="to" placeholder="To: stop name, or click the map" aria-label="To">
+        <ul class="suggest" id="to-list"></ul>
+      </div>
+      <div class="when">
+        <div class="seg" id="day">
+          <button type="button" data-day="now">Now</button>
+          <button type="button" data-day="weekday" class="on">Weekday</button>
+          <button type="button" data-day="saturday">Sat</button>
+          <button type="button" data-day="sunday">Sun</button>
+        </div>
+        <input type="time" id="time" value="08:30" aria-label="Leave at">
+      </div>
+      <button class="primary" id="go">Find buses</button>
+    </form>
+    <div class="presets" id="presets"></div>
+    <div id="status" class="status"></div>
+    <div id="options"></div>
+    <div id="otherTimes"></div>
+  </section>
+
+  <section id="tab-traffic" class="tab">
+    <div class="seg" id="tday">
+      <button type="button" data-day="weekday" class="on">Weekday</button>
+      <button type="button" data-day="saturday">Saturday</button>
+      <button type="button" data-day="sunday">Sunday</button>
+    </div>
+    <div class="clock"><span id="tclock">18:30</span><small id="tcity"></small></div>
+    <div class="spark" id="spark"></div>
+    <div class="slider-row">
+      <button class="icon-btn" id="play" title="Play the day" aria-label="Play the day">▶</button>
+      <input type="range" id="tslider" min="0" max="47" value="37" aria-label="Time of day">
+    </div>
+    <div class="legend">
+      <span>Bus speed between stops</span>
+      <div class="ramp"></div>
+      <div class="ramp-labels"><span>5</span><span>10</span><span>15</span><span>22</span><span>30+ km/h</span></div>
+    </div>
+    <p class="note" id="tnote"></p>
+  </section>
+
+  <section id="tab-live" class="tab">
+    <div id="live"></div>
+  </section>
+
+  <section id="tab-accuracy" class="tab">
+    <div id="accuracy"></div>
+  </section>
+
+  <footer>Data: Transport Stack / IIIT Delhi, DTC bus GPS, October 2026 · Map © OpenStreetMap contributors, OpenFreeMap · <a href="/docs" target="_blank" rel="noopener">API</a></footer>
+</aside>
+
+<script>window.__errors = []; addEventListener('error', (e) => __errors.push(e.message)); addEventListener('unhandledrejection', (e) => __errors.push(String(e.reason)));</script>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "voice": "Nishant - Professional Indian English",
+  "model": "eleven_multilingual_v2",
+  "lines": {
+    "s1": "This is Raftaar. Delhi bus travel times, learned from the buses' own GPS.",
+    "s2": "Ask it for a trip. Kashmiri Gate to Nehru Place, leaving at eight thirty on a weekday morning. It tells you where to walk, which bus to board, where to change, and how long it will take: about an hour and twelve minutes.",
+    "s3": "At every stop it lists each route worth taking, because a rider takes whichever bus comes first. Waiting time comes from how often buses were actually seen.",
+    "s4": "Now the same trip at six thirty in the evening: an hour and forty minutes. The published timetable gives one figure for the whole day. On the routes we checked, so did Google Maps.",
+    "s5": "Every answer shows the same trip at other hours, so you can see what traffic really costs.",
+    "s6": "Behind it is a traffic model built from one month of bus GPS data. Nine hundred and thirteen million rows, one point seven five million bus trips rebuilt, and fifteen thousand stretches of road, each timed for every half hour of the day.",
+    "s7": "Watch the city through a weekday. Green at dawn. By evening, the centre turns red.",
+    "s8": "And it is live. Every thirty seconds we read the position of every bus on the road. Each one is followed along its route, and its latest times feed the model.",
+    "s9": "So a trip leaving now is adjusted by what buses did in the last twenty minutes.",
+    "s10": "We tested it on one point four million real bus trips, from days the model had never seen. The average error is three minutes.",
+    "s11": "On the same trips, the timetable is off by five point four minutes. And on the routes we checked, Google's bus times were off by nine point seven minutes.",
+    "s12": "Raftaar is open source. Try it at the link on screen."
+  }
+}

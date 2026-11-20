@@ -1,0 +1,15 @@
+route,from,to,from_lat,from_lng,to_lat,to_lng,stops,distance_km
+425UP,Red Fort,Nehru Place Terminal,28.658015,77.236958,28.5487,77.256981,23,14.5
+78DOWN,Shadipur Depot,Subash Place Depot,28.653117,77.1555,28.694778,77.154843,18,8.9
+MC715DOWN,Bhalaswa Crossing / Bhalaswa Golf Course,Kali Mata Mandir,28.737239,77.167589,28.697103,77.116151,15,7.3
+525STLDOWN,Maidan Garhi Crossing (SDM Court),Surajkund Crossing,28.519466,77.207768,28.50174,77.290483,17,8.5
+546STL-GHD-IIDOWN,Pandwala Crossing,Sewak Park Dwarka More Metro Station,28.574027,76.952356,28.619393,77.033186,23,11.0
+GL-23DOWN,Hasanpur Depot,Shastri Park GT Road,28.635936,77.30806,28.673253,77.251719,15,7.9
+861AUP,Tilak Nagar Crossing,Sarai Peepal Thala,28.635538,77.092903,28.720417,77.166983,21,14.1
+8UP,Madanpur Khadar Crossing,SALARPUR VILLAGE,28.529703,77.287907,28.544769,77.384521,21,12.9
+D-5403DOWN,Mayur vihar Phase 3 Crossing,Lalita Park,28.601609,77.327435,28.631979,77.270664,24,10.1
+433UP,Krishan Menon Marg,Okhla Phase 1,28.6051,77.2111,28.5203,77.2777,28,15.1
+ML-96DOWN,DSIDC Flats,Jahangirpuri Metro Station GT Road,28.841812,77.117149,28.725902,77.162809,18,14.7
+33UP,Jyoti Nagar Enclave / DURGA PURI CHOWK,Telephone Exch Noida Sector-19,28.693713,77.291722,28.582173,77.325479,36,20.9
+918DOWN,Peera Garhi Chowk,Kamala Market /  Ajmeri Gate,28.679358,77.096988,28.643983,77.224451,30,14.0
+717ADOWN,Kathuria Public School/Vasant Kunj D7,Tughlaqabad Village,28.530969,77.14652,28.509283,77.265,27,14.0

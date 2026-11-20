@@ -1,0 +1,71 @@
+route,from,to,day,at,departure_utc,transit_total_min,transit_on_bus_min,transit_lines,driving_min,queried_utc
+425UP,Red Fort,Nehru Place Terminal,weekday,08:30,2026-11-25T03:00:00Z,51.5,49.2,425,31.7,2026-11-19T13:55:16Z
+425UP,Red Fort,Nehru Place Terminal,weekday,13:00,2026-11-25T07:30:00Z,74.3,59.5,729 > 505 > D-022,42.0,2026-11-19T13:55:17Z
+425UP,Red Fort,Nehru Place Terminal,weekday,18:30,2026-11-25T13:00:00Z,51.5,49.2,425,46.8,2026-11-19T13:55:20Z
+425UP,Red Fort,Nehru Place Terminal,weekday,22:00,2026-11-25T16:30:00Z,51.5,49.2,425,31.9,2026-11-19T13:55:20Z
+425UP,Red Fort,Nehru Place Terminal,sunday,13:00,2026-11-22T07:30:00Z,74.3,59.5,729 > 505 > D-022,35.9,2026-11-19T13:55:21Z
+78DOWN,Shadipur Depot,Subash Place Depot,weekday,08:30,2026-11-25T03:00:00Z,26.1,22.0,159,10.7,2026-11-19T13:55:22Z
+78DOWN,Shadipur Depot,Subash Place Depot,weekday,13:00,2026-11-25T07:30:00Z,26.1,22.0,159,13.8,2026-11-19T13:55:23Z
+78DOWN,Shadipur Depot,Subash Place Depot,weekday,18:30,2026-11-25T13:00:00Z,26.1,22.0,159,17.0,2026-11-19T13:55:24Z
+78DOWN,Shadipur Depot,Subash Place Depot,weekday,22:00,2026-11-25T16:30:00Z,26.1,22.0,159,12.7,2026-11-19T13:55:25Z
+78DOWN,Shadipur Depot,Subash Place Depot,sunday,13:00,2026-11-22T07:30:00Z,26.1,22.0,159,12.5,2026-11-19T13:55:26Z
+MC715DOWN,Bhalaswa Crossing / Bhalaswa Golf Course,Kali Mata Mandir,weekday,08:30,2026-11-25T03:00:00Z,29.0,25.2,MC715,11.1,2026-11-19T13:55:27Z
+MC715DOWN,Bhalaswa Crossing / Bhalaswa Golf Course,Kali Mata Mandir,weekday,13:00,2026-11-25T07:30:00Z,29.0,25.1,254,19.9,2026-11-19T13:55:28Z
+MC715DOWN,Bhalaswa Crossing / Bhalaswa Golf Course,Kali Mata Mandir,weekday,18:30,2026-11-25T13:00:00Z,29.0,25.1,254,23.7,2026-11-19T13:55:29Z
+MC715DOWN,Bhalaswa Crossing / Bhalaswa Golf Course,Kali Mata Mandir,weekday,22:00,2026-11-25T16:30:00Z,29.0,25.1,?,11.3,2026-11-19T13:55:32Z
+MC715DOWN,Bhalaswa Crossing / Bhalaswa Golf Course,Kali Mata Mandir,sunday,13:00,2026-11-22T07:30:00Z,29.0,25.1,254,14.8,2026-11-19T13:55:33Z
+525STLDOWN,Maidan Garhi Crossing (SDM Court),Surajkund Crossing,weekday,08:30,2026-11-25T03:00:00Z,31.2,29.9,717C,24.1,2026-11-19T13:55:33Z
+525STLDOWN,Maidan Garhi Crossing (SDM Court),Surajkund Crossing,weekday,13:00,2026-11-25T07:30:00Z,31.2,29.9,525EXT,27.4,2026-11-19T13:55:34Z
+525STLDOWN,Maidan Garhi Crossing (SDM Court),Surajkund Crossing,weekday,18:30,2026-11-25T13:00:00Z,31.3,29.9,717A,31.9,2026-11-19T13:55:35Z
+525STLDOWN,Maidan Garhi Crossing (SDM Court),Surajkund Crossing,weekday,22:00,2026-11-25T16:30:00Z,31.2,29.9,525,22.9,2026-11-19T13:55:36Z
+525STLDOWN,Maidan Garhi Crossing (SDM Court),Surajkund Crossing,sunday,13:00,2026-11-22T07:30:00Z,31.2,29.9,525EXT,24.5,2026-11-19T13:55:37Z
+546STL-GHD-IIDOWN,Pandwala Crossing,Sewak Park Dwarka More Metro Station,weekday,08:30,2026-11-25T03:00:00Z,38.3,38.0,?,30.6,2026-11-19T13:55:37Z
+546STL-GHD-IIDOWN,Pandwala Crossing,Sewak Park Dwarka More Metro Station,weekday,13:00,2026-11-25T07:30:00Z,38.3,38.0,?,30.8,2026-11-19T13:55:38Z
+546STL-GHD-IIDOWN,Pandwala Crossing,Sewak Park Dwarka More Metro Station,weekday,18:30,2026-11-25T13:00:00Z,42.0,38.0,9911 > 848,36.5,2026-11-19T13:55:39Z
+546STL-GHD-IIDOWN,Pandwala Crossing,Sewak Park Dwarka More Metro Station,weekday,22:00,2026-11-25T16:30:00Z,42.0,38.0,9911 > 848,26.1,2026-11-19T13:55:40Z
+546STL-GHD-IIDOWN,Pandwala Crossing,Sewak Park Dwarka More Metro Station,sunday,13:00,2026-11-22T07:30:00Z,38.3,38.0,?,32.5,2026-11-19T13:55:40Z
+GL-23DOWN,Hasanpur Depot,Shastri Park GT Road,weekday,08:30,2026-11-25T03:00:00Z,27.6,26.9,143,15.0,2026-11-19T13:55:41Z
+GL-23DOWN,Hasanpur Depot,Shastri Park GT Road,weekday,13:00,2026-11-25T07:30:00Z,27.8,27.1,211,19.5,2026-11-19T13:55:42Z
+GL-23DOWN,Hasanpur Depot,Shastri Park GT Road,weekday,18:30,2026-11-25T13:00:00Z,27.8,27.1,211,21.4,2026-11-19T13:55:43Z
+GL-23DOWN,Hasanpur Depot,Shastri Park GT Road,weekday,22:00,2026-11-25T16:30:00Z,27.8,27.1,211,16.1,2026-11-19T13:55:43Z
+GL-23DOWN,Hasanpur Depot,Shastri Park GT Road,sunday,13:00,2026-11-22T07:30:00Z,27.8,27.1,211,18.0,2026-11-19T13:55:44Z
+861AUP,Tilak Nagar Crossing,Sarai Peepal Thala,weekday,08:30,2026-11-25T03:00:00Z,47.5,47.0,861A,27.1,2026-11-19T13:55:45Z
+861AUP,Tilak Nagar Crossing,Sarai Peepal Thala,weekday,13:00,2026-11-25T07:30:00Z,47.5,47.0,861A,34.5,2026-11-19T13:55:46Z
+861AUP,Tilak Nagar Crossing,Sarai Peepal Thala,weekday,18:30,2026-11-25T13:00:00Z,47.5,47.0,861A,37.1,2026-11-19T13:55:47Z
+861AUP,Tilak Nagar Crossing,Sarai Peepal Thala,weekday,22:00,2026-11-25T16:30:00Z,47.5,47.0,861A,28.4,2026-11-19T13:55:48Z
+861AUP,Tilak Nagar Crossing,Sarai Peepal Thala,sunday,13:00,2026-11-22T07:30:00Z,47.5,47.0,861A,29.4,2026-11-19T13:55:49Z
+8UP,Madanpur Khadar Crossing,SALARPUR VILLAGE,weekday,08:30,2026-11-25T03:00:00Z,81.4,66.7,8 > 8,29.0,2026-11-19T13:55:50Z
+8UP,Madanpur Khadar Crossing,SALARPUR VILLAGE,weekday,13:00,2026-11-25T07:30:00Z,121.4,70.1,443 > 8A > 8,29.5,2026-11-19T13:55:51Z
+8UP,Madanpur Khadar Crossing,SALARPUR VILLAGE,weekday,18:30,2026-11-25T13:00:00Z,81.4,66.7,8 > 8,40.7,2026-11-19T13:55:52Z
+8UP,Madanpur Khadar Crossing,SALARPUR VILLAGE,weekday,22:00,2026-11-25T16:30:00Z,96.4,66.7,8 > 8,30.8,2026-11-19T13:55:53Z
+8UP,Madanpur Khadar Crossing,SALARPUR VILLAGE,sunday,13:00,2026-11-22T07:30:00Z,121.4,70.1,443 > 8A > 8,27.9,2026-11-19T13:55:53Z
+D-5403DOWN,Mayur vihar Phase 3 Crossing,Lalita Park,weekday,08:30,2026-11-25T03:00:00Z,28.7,28.7,MC137,18.6,2026-11-19T13:55:54Z
+D-5403DOWN,Mayur vihar Phase 3 Crossing,Lalita Park,weekday,13:00,2026-11-25T07:30:00Z,28.7,28.7,MC137,20.2,2026-11-19T13:55:55Z
+D-5403DOWN,Mayur vihar Phase 3 Crossing,Lalita Park,weekday,18:30,2026-11-25T13:00:00Z,28.7,28.7,MC137,26.9,2026-11-19T13:55:56Z
+D-5403DOWN,Mayur vihar Phase 3 Crossing,Lalita Park,weekday,22:00,2026-11-25T16:30:00Z,28.7,28.7,MC137,18.6,2026-11-19T13:55:57Z
+D-5403DOWN,Mayur vihar Phase 3 Crossing,Lalita Park,sunday,13:00,2026-11-22T07:30:00Z,28.7,28.7,MC137,19.1,2026-11-19T13:55:57Z
+433UP,Krishan Menon Marg,Okhla Phase 1,weekday,08:30,2026-11-25T03:00:00Z,56.2,47.8,433,36.1,2026-11-19T13:55:58Z
+433UP,Krishan Menon Marg,Okhla Phase 1,weekday,13:00,2026-11-25T07:30:00Z,56.2,47.8,433B,39.8,2026-11-19T13:55:59Z
+433UP,Krishan Menon Marg,Okhla Phase 1,weekday,18:30,2026-11-25T13:00:00Z,56.2,47.8,433,60.8,2026-11-19T13:56:00Z
+433UP,Krishan Menon Marg,Okhla Phase 1,weekday,22:00,2026-11-25T16:30:00Z,69.2,55.8,548 > 511A,31.8,2026-11-19T13:56:01Z
+433UP,Krishan Menon Marg,Okhla Phase 1,sunday,13:00,2026-11-22T07:30:00Z,56.2,47.8,433B,34.0,2026-11-19T13:56:02Z
+ML-96DOWN,DSIDC Flats,Jahangirpuri Metro Station GT Road,weekday,08:30,2026-11-25T03:00:00Z,57.6,51.4,120,19.5,2026-11-19T13:56:03Z
+ML-96DOWN,DSIDC Flats,Jahangirpuri Metro Station GT Road,weekday,13:00,2026-11-25T07:30:00Z,57.6,51.4,120,26.4,2026-11-19T13:56:04Z
+ML-96DOWN,DSIDC Flats,Jahangirpuri Metro Station GT Road,weekday,18:30,2026-11-25T13:00:00Z,57.6,51.4,120,30.3,2026-11-19T13:56:05Z
+ML-96DOWN,DSIDC Flats,Jahangirpuri Metro Station GT Road,weekday,22:00,2026-11-25T16:30:00Z,56.3,50.1,ML96,21.3,2026-11-19T13:56:05Z
+ML-96DOWN,DSIDC Flats,Jahangirpuri Metro Station GT Road,sunday,13:00,2026-11-22T07:30:00Z,57.6,51.4,120,20.6,2026-11-19T13:56:06Z
+33UP,Jyoti Nagar Enclave / DURGA PURI CHOWK,Telephone Exch Noida Sector-19,weekday,08:30,2026-11-25T03:00:00Z,78.6,71.5,33A,47.7,2026-11-19T13:56:07Z
+33UP,Jyoti Nagar Enclave / DURGA PURI CHOWK,Telephone Exch Noida Sector-19,weekday,13:00,2026-11-25T07:30:00Z,74.7,74.7,33,47.1,2026-11-19T13:56:08Z
+33UP,Jyoti Nagar Enclave / DURGA PURI CHOWK,Telephone Exch Noida Sector-19,weekday,18:30,2026-11-25T13:00:00Z,75.3,57.5,33 > ? > 443,55.7,2026-11-19T13:56:09Z
+33UP,Jyoti Nagar Enclave / DURGA PURI CHOWK,Telephone Exch Noida Sector-19,weekday,22:00,2026-11-25T16:30:00Z,102.8,63.1,374 > 443,37.5,2026-11-19T13:56:10Z
+33UP,Jyoti Nagar Enclave / DURGA PURI CHOWK,Telephone Exch Noida Sector-19,sunday,13:00,2026-11-22T07:30:00Z,74.7,74.7,33,41.0,2026-11-19T13:56:10Z
+918DOWN,Peera Garhi Chowk,Kamala Market /  Ajmeri Gate,weekday,08:30,2026-11-25T03:00:00Z,49.9,48.6,954,34.2,2026-11-19T13:56:11Z
+918DOWN,Peera Garhi Chowk,Kamala Market /  Ajmeri Gate,weekday,13:00,2026-11-25T07:30:00Z,53.2,48.1,966 > 857,46.5,2026-11-19T13:56:12Z
+918DOWN,Peera Garhi Chowk,Kamala Market /  Ajmeri Gate,weekday,18:30,2026-11-25T13:00:00Z,49.3,48.1,918,43.7,2026-11-19T13:56:12Z
+918DOWN,Peera Garhi Chowk,Kamala Market /  Ajmeri Gate,weekday,22:00,2026-11-25T16:30:00Z,53.0,48.0,966 > 83,34.3,2026-11-19T13:56:13Z
+918DOWN,Peera Garhi Chowk,Kamala Market /  Ajmeri Gate,sunday,13:00,2026-11-22T07:30:00Z,53.2,48.1,966 > 857,39.3,2026-11-19T13:56:14Z
+717ADOWN,Kathuria Public School/Vasant Kunj D7,Tughlaqabad Village,weekday,08:30,2026-11-25T03:00:00Z,48.5,48.5,717A,41.6,2026-11-19T13:56:15Z
+717ADOWN,Kathuria Public School/Vasant Kunj D7,Tughlaqabad Village,weekday,13:00,2026-11-25T07:30:00Z,48.5,48.5,717A,42.4,2026-11-19T13:56:15Z
+717ADOWN,Kathuria Public School/Vasant Kunj D7,Tughlaqabad Village,weekday,18:30,2026-11-25T13:00:00Z,48.5,48.5,717A,52.3,2026-11-19T13:56:16Z
+717ADOWN,Kathuria Public School/Vasant Kunj D7,Tughlaqabad Village,weekday,22:00,2026-11-25T16:30:00Z,48.5,48.5,717C,35.4,2026-11-19T13:56:17Z
+717ADOWN,Kathuria Public School/Vasant Kunj D7,Tughlaqabad Village,sunday,13:00,2026-11-22T07:30:00Z,48.5,48.5,717A,39.2,2026-11-19T13:56:17Z
