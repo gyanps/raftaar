@@ -1,6 +1,6 @@
 {
   "voice": "Nishant - Professional Indian English",
-  "model": "eleven_multilingual_v2",
+  "model": "eleven_v4",
   "lines": {
     "s1": "This is Raftaar. Delhi bus travel times, learned from the buses' own GPS.",
     "s2": "Ask it for a trip. Kashmiri Gate to Nehru Place, leaving at eight thirty on a weekday morning. It tells you where to walk, which bus to board, where to change, and how long it will take: about an hour and twelve minutes.",

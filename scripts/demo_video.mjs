@@ -64,10 +64,10 @@ await send('Page.navigate', { url: BASE + '/?from=ISBT%20Kashmere%20Gate&to=Nehr
 await until("document.readyState === 'complete' && document.body");
 await js(`(() => {
   const c = document.createElement('div');
-  c.style.cssText = 'position:fixed;left:calc(50% + 208px);bottom:30px;transform:translateX(-50%);width:min(700px,52vw);padding:13px 20px;border-radius:14px;background:rgba(15,23,42,.9);color:#fff;font:600 18px/1.4 -apple-system,BlinkMacSystemFont,Inter,sans-serif;text-align:center;z-index:99999;opacity:0;transition:opacity .45s;box-shadow:0 10px 40px rgba(0,0,0,.35)';
+  c.style.cssText = 'position:fixed;left:calc(50% + 208px);bottom:30px;transform:translateX(-50%);width:min(700px,52vw);padding:13px 20px;border-radius:14px;background:rgba(30,64,175,.95);color:#fff;font:600 18px/1.4 -apple-system,BlinkMacSystemFont,Inter,sans-serif;text-align:center;z-index:99999;opacity:0;transition:opacity .45s;box-shadow:0 10px 36px rgba(30,58,138,.38)';
   document.body.appendChild(c);
   const k = document.createElement('div');
-  k.style.cssText = 'position:fixed;inset:0;display:grid;place-items:center;background:#0b1220;color:#fff;z-index:100000;opacity:1;transition:opacity .7s;pointer-events:none;text-align:center;font-family:-apple-system,BlinkMacSystemFont,Inter,sans-serif';
+  k.style.cssText = 'position:fixed;inset:0;display:grid;place-items:center;background:linear-gradient(135deg,#1e3a8a 0%,#1e40af 55%,#2563eb 100%);color:#fff;z-index:100000;opacity:1;transition:opacity .7s;pointer-events:none;text-align:center;font-family:-apple-system,BlinkMacSystemFont,Inter,sans-serif';
   document.body.appendChild(k);
   // Chrome sends a frame only when the picture changes, and can drop the last change before a still scene.
   // A two-pixel element that never stops moving keeps the frames coming, so nothing is lost or late.
@@ -82,9 +82,9 @@ await js(`(() => {
 })()`);
 
 // 1. title
-await card('<div><div style="font-size:64px;font-weight:800;letter-spacing:-.03em;color:#93c5fd">Raftaar</div>'
+await card('<div><div style="font-size:64px;font-weight:800;letter-spacing:-.03em;color:#fff">Raftaar</div>'
   + '<div style="font-size:26px;margin-top:10px">Delhi bus times, learned from the buses&rsquo; own GPS</div>'
-  + '<div style="font-size:16px;margin-top:26px;color:#94a3b8">Transport Stack Hackathon 2026 &middot; Problem 1 &middot; Team Raftaar, ABC Express</div></div>');
+  + '<div style="font-size:16px;margin-top:26px;color:#bfdbfe">Transport Stack Hackathon 2026 &middot; Problem 1 &middot; Team Raftaar, ABC Express</div></div>');
 await until("document.querySelector('.other')", 40000);
 // Behind the title card: open the Speeds and Accuracy tabs once so their data is already loaded when their scenes come.
 await click('.tabs [data-tab="traffic"]');
@@ -165,11 +165,11 @@ await hold('s11', 7000);
 
 // 7. end card
 await cap('');
-await card('<div><div style="font-size:54px;font-weight:800;letter-spacing:-.03em;color:#93c5fd">Raftaar</div>'
+await card('<div><div style="font-size:54px;font-weight:800;letter-spacing:-.03em;color:#fff">Raftaar</div>'
   + '<div style="font-size:24px;margin-top:14px">gyanps-raftaar.hf.space</div>'
-  + '<div style="font-size:19px;margin-top:8px;color:#cbd5e1">github.com/gyanps/raftaar</div>'
-  + '<div style="font-size:17px;margin-top:22px;color:#cbd5e1">Open source &middot; Python, FastAPI, MapLibre &middot; API reference at /docs</div>'
-  + '<div style="font-size:15px;margin-top:10px;color:#94a3b8">Data: Transport Stack / IIIT Delhi &middot; Map &copy; OpenStreetMap contributors</div></div>');
+  + '<div style="font-size:19px;margin-top:8px;color:#dbeafe">github.com/gyanps/raftaar</div>'
+  + '<div style="font-size:17px;margin-top:22px;color:#dbeafe">Open source &middot; Python, FastAPI, MapLibre &middot; API reference at /docs</div>'
+  + '<div style="font-size:15px;margin-top:10px;color:#bfdbfe">Data: Transport Stack / IIIT Delhi &middot; Map &copy; OpenStreetMap contributors</div></div>');
 scene('s12');
 await hold('s12', 5000);
 
