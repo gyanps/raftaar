@@ -89,6 +89,32 @@ Each option lists the walk to the first stop, where to board, every route worth 
 
 Interactive reference: `/docs`.
 
+## Score your own test cases
+
+To check the model against a list of trips, put them in a CSV (or a JSON list) and run:
+
+```bash
+make predict CASES=cases.csv        # writes cases.predictions.csv next to it
+```
+
+It works straight after `make demo`; no raw data and no server are needed. Column names are matched loosely, so most files work as they are:
+
+| A case needs | Accepted columns |
+|---|---|
+| Where from, where to | a stop name or `lat,lng` in `from` / `to` (also `origin`, `source`, `destination` ...), **or** a GTFS stop id in `from_stop_id` / `to_stop_id`, **or** `from_lat`, `from_lng`, `to_lat`, `to_lng` |
+| When | `depart` (also `departure_time`, `time`, `datetime`, `timestamp`): `2026-10-28 08:30`, an ISO time with a zone, epoch seconds, or `08:30` with a `date` or a `day` column (weekday / saturday / sunday) |
+| Optional: the route | `route` (`425` or `425UP`) or `route_id`; the bus ride is then priced on that route |
+| Optional: the observed time | `actual_min`, `observed_min`, `actual_s`, `travel_time_s` ...; the file is then scored |
+
+Each row gets two answers, because "travel time" can mean either:
+
+- **`bus_ride_min`**: time on one bus from the boarding stop to the alighting stop, with its 10th to 90th percentile range and the timetable's figure beside it. This is what the backtest measures.
+- **`door_to_door_min`**: the whole journey from the planner, with walking, waiting and any change of bus, and its range.
+
+A row that cannot be read (an unknown stop, a missing time) gets a `note` saying why and the rest still run. With an observed-time column the command prints the average error, the share of cases within 10%, the bias, and the timetable's error on the same cases; add `--actual-is door` if the observed time is door to door. [validation/sample_cases.csv](validation/sample_cases.csv) shows every accepted layout.
+
+A file has no "now", so these answers are the typical-day model for the given date and time. For a trip leaving now with the live adjustment, ask `/api/journeys?depart=now` on a server started with the feed key.
+
 ## How it works, in short
 
 1. **Fixes.** The feed re-logs a bus every 10 seconds whether or not it has a new position; duplicates and positions outside Delhi are dropped.
@@ -110,7 +136,7 @@ raftaar/model       observations.py, profile.py, traveltime.py
 raftaar/live        feed.py (GTFS-Realtime), state.py (rolling match), service.py (polling)
 raftaar/planner     build.py, raptor.py, journeys.py
 raftaar/api         main.py (FastAPI), places.py
-raftaar/validation  backtest.py, metrics.py
+raftaar/validation  backtest.py, metrics.py, predict.py (score a file of test trips)
 web/                the map screen (no build step; MapLibre GL)
 tests/              pytest
 ```

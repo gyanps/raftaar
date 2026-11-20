@@ -1,0 +1,8 @@
+from,to,from_stop_id,to_stop_id,depart,day,route
+ISBT Kashmere Gate,Nehru Place Terminal,,,08:30,weekday,
+ISBT Kashmere Gate,Nehru Place Terminal,,,18:30,weekday,
+Red Fort,Nehru Place Terminal,,,2026-10-28 18:30,,425
+,,333,2560,09:00,saturday,
+,,1439,1444,13:00,sunday,78
+"28.6304,77.2177","28.5672,77.2100",,,2026-11-25T09:15:00+05:30,,
+Anand Vihar ISBT,Dwarka Sec 21 Metro,,,07:45,monday,

@@ -2,10 +2,12 @@
 #   make all      everything below, in order (about 15 minutes on a laptop, about 12 GB of free disk)
 #   make demo     skip the data: download the fitted model (32 MB) instead, then 'make serve'
 #   make serve    the API and the map at http://localhost:8000
+#   make predict CASES=cases.csv    score a file of test trips -> cases.predictions.csv
 PORT ?= 8000
 WORKERS ?= 6
+CASES ?= validation/sample_cases.csv
 
-.PHONY: all demo setup gtfs reduce match model planner backtest test serve shots
+.PHONY: all demo setup gtfs reduce match model planner backtest predict test serve shots
 
 all: setup gtfs reduce match model planner backtest
 
@@ -32,6 +34,9 @@ planner:         ## observed bus frequencies, walking links
 
 backtest:        ## train on 1-24 Oct, test on 25-31 Oct -> artifacts/backtest.md
 	uv run python -m raftaar.validation.backtest --train 1-24 --test 25-31
+
+predict:         ## score a file of test trips (CSV or JSON): make predict CASES=cases.csv -> cases.predictions.csv
+	uv run python -m raftaar.validation.predict $(CASES)
 
 test:
 	uv run pytest -q
